@@ -20,6 +20,70 @@
 
     <div class="form-group">
         <label th:for="type">Type</label>
+        <select th:field="*{type}">  <--When user selects something from this
+            dropdown, that property will go to the type of the cheese when it's
+            bound -->
+            <option th:each="cheeseType : ${cheeseTypes}"
+                    th:text="{cheeseType.name}"
+                    th:value="{cheeseType}"></option> <--used dollar sign b/c
+            cheeseType is NOT a part of the object that he "scoped" his "form to"-->
+            fsdef
+
+        </select>
+    </div>
+
+
+<!--<div class="form-group">-->
+<!--    <label th:for="type">Type</label>-->
+<!--    <select th:field="*{type}">-->
+<!--        <option th:each="cheeseType : ${cheeseType}"-->
+<!--                th:text="${cheeseType.name}"-->
+<!--                th:value="${cheeseType}"></option>-->
+<!--    </select>-->
+<!--</div>-->
+
+<input type="submit" value="Add Cheese" />
+</form>
+
+</body>
+</html>
+<!--My code doesn't work, but it looks the same as his.
+Here's his for reference.  When I past his into this
+template, it works, so...-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${cheese}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="type">Type</label>
         <select th:field="*{type}">
             <option th:each="cheeseType : ${cheeseTypes}"
                     th:text="${cheeseType.name}"

@@ -9,13 +9,13 @@ public enum CheeseType {
     SOFT ("Soft"),
     FAKE ("Fake");
 
+
     private final String name;
 
-    CheeseType(String name) {
+    CheeseType(String name){
         this.name = name;
     }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
 

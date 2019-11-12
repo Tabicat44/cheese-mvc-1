@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class CheeseData {
 
-    static ArrayList<Cheese> cheeses = new ArrayList<>();
+    public static ArrayList<Cheese> cheeses = new ArrayList<>();
 
     // getAll
     public static ArrayList<Cheese> getAll() {
@@ -23,6 +23,14 @@ public class CheeseData {
     public static void remove(int id) {
         Cheese cheeseToRemove = getById(id);
         cheeses.remove(cheeseToRemove);
+    }
+
+    // update
+    public static void update(Cheese newCheese) {
+        Cheese cheeseToUpdate = getById(newCheese.getCheeseId());
+        cheeseToUpdate.setDescription(newCheese.getDescription());
+        cheeseToUpdate.setName(newCheese.getName());
+//        cheeseToUpdate.setType(newCheese.getType());
     }
 
     // getById
